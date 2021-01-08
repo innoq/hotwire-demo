@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -19,6 +20,13 @@ public class MessagesController {
 
     public List<String> getComments() {
         return this.comments;
+    }
+
+    @GetMapping(path = "/messages/comments")
+    public String comments(Model model) throws InterruptedException {
+        Thread.sleep(1000);
+        model.addAttribute("comments", this.comments);
+        return "comments";
     }
 
     @PostMapping(path = "/messages/comments")

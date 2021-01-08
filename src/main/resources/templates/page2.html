@@ -12,6 +12,14 @@
             <h1>Page 2</h1>
             <p>This pages currently only serves to showcase navigating with <a href="https://turbo.hotwire.dev/handbook/drive">Turbo
                     Drive</a></p>
+
+            <h2>Showcasing lazy loaded Turbo Frames</h2>
+            <p>Let's move on to showcase <a href="https://turbo.hotwire.dev/handbook/frames#lazily-loading-frames">lazy loaded Turbo Frames</a></p>
+            
+            <h3>✨ these comments are loaded automagically ✨</h3>
+            <turbo-frame id="comments" src="/messages/comments">
+                <img src="/images/spin.gif" alt="Waiting icon">
+            </turbo-frame>
         </main>
         <footer th:replace="~{fragments/footer::footer}" />
     </div>
