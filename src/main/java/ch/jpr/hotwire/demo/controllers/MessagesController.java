@@ -44,4 +44,13 @@ public class MessagesController {
         return "redirect:/page1";
     }
 
+    @PostMapping(path = "/messages/comments/remove")
+    public String removeComment(Model model) {
+        if (this.comments.size() > 0) {
+            this.comments.remove(0);
+        }
+        model.addAttribute("comments", this.comments);
+        return "comments";
+    }
+
 }

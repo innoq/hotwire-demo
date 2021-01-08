@@ -20,6 +20,15 @@
             <turbo-frame id="comments" src="/messages/comments">
                 <img src="/images/spin.gif" alt="Waiting icon">
             </turbo-frame>
+
+            <h2>Showcasing addressing a frame somewhere else</h2>
+            <p>You also can interact with a <a href="https://turbo.hotwire.dev/handbook/frames#targeting-navigation-into-or-out-of-a-frame">turbo-frame that youre interactive element does not live in</a></p>
+            <h3>✨ Remove comments ✨</h3>
+            <p>The following form removes comments <em>from the list above</em>.</p>
+            <p>Submitting it should only trigger a reload of the frame above, not the whole site</p>
+            <form action="/messages/comments/remove" method="post" data-turbo-frame="comments">
+                <button type="submit">Remove comment</button>
+            </form>
         </main>
         <footer th:replace="~{fragments/footer::footer}" />
     </div>
