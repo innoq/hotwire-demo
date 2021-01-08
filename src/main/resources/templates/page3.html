@@ -12,6 +12,35 @@
             <h1>Page 3</h1>
             <p>This pages currently only serves to showcase navigating with <a href="https://turbo.hotwire.dev/handbook/drive">Turbo
                     Drive</a></p>
+            <h2>Showcasing Turbo Streams</h2>
+            <p>Let's wrap it up and showcase showcase <a href="https://turbo.hotwire.dev/handbook/streams">Turbo Streams</a></p>
+            <p>We'll have several texts that get commented on, but we only have one comment form! All comment sections will get updated from the same action at once, without us reloading the whole page</p>
+            
+            <h3>✨Section 1 ✨</h3>
+            <p>This is a paragraph of text that gets commented on.</p>
+            <p>New Comments are appended at the end</p>
+            <h3>Comments</h3>
+            <ol id="comments_append">
+            </ol>
+
+            <h3>✨Section 2 ✨</h3>
+            <p>This is a paragraph of text that gets commented on.</p>
+            <p>New Comments are appended at the top</p>
+            <h3>Comments</h3>
+            <ol id="comments_prepend">
+            </ol>
+
+            <h3>✨Section 3 ✨</h3>
+            <p>This is a paragraph of text that gets commented on.</p>
+            <p>It can only ever have one comment</p>
+            <h3>Comments</h3>
+            <div id="comments_replace"></div>
+            
+            <h3>The FORM</h3>
+            <form action="/messages/comments/stream" method="POST">
+                <input type="text" name="comment" id="comment">
+                <button type="submit">Send comment</button>
+            </form>
         </main>
         <footer th:replace="~{fragments/footer::footer}" />
     </div>

@@ -8,10 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.ServletWebRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MessagesController {
 
+    private static final String CONTENT_TYPE_TURBO_STREAM="text/html; turbo-stream";
     private List<String> comments;
 
     public MessagesController() {
@@ -51,6 +54,16 @@ public class MessagesController {
         }
         model.addAttribute("comments", this.comments);
         return "comments";
+    }
+
+    @PostMapping(path = "/messages/comments/stream")
+    public ModelAndView streamComment(@RequestParam("comment") String comment, ServletWebRequest swr) {
+
+        this.comments.add(comment);
+        swr.getResponse().setContentType(CONTENT_TYPE_TURBO_STREAM);
+        ModelAndView response = new ModelAndView("comments-stream");
+        response.addObject("comment", comment);
+        return response;
     }
 
 }

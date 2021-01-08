@@ -1,0 +1,15 @@
+<turbo-stream action="append" target="comments_append">
+    <template>
+        <li th:text="${comment}"></li>
+    </template>
+</turbo-stream>
+<turbo-stream action="prepend" target="comments_prepend">
+    <template>
+        <li th:text="${comment}"></li>
+    </template>
+</turbo-stream>
+<turbo-stream action="replace" target="comments_replace">
+    <template>
+        <div th:text="${comment}"></div>
+    </template>
+</turbo-stream>
