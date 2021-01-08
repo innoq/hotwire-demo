@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>FLICC Widgets</title>
+</head>
+
+<body>
+    <nav class="main-navigation" aria-label="Hauptnavigation" th:fragment="main_navigation(currentlink)">
+        <ul>
+            <li th:class="${currentlink == 'page1'}? 'active' : ''"><a href="/page1" th:href="@{/page1}">Page 1</a></li>
+            <li th:class="${currentlink == 'page2'}? 'active' : ''"><a href="/page2" th:href="@{/page2}">Page 2</a></li>
+            <li th:class="${currentlink == 'page3'}? 'active' : ''"><a href="/page3" th:href="@{/page3} ">Page 3</a></li>
+        </ul>
+    </nav>
+</body>
+
+</html>

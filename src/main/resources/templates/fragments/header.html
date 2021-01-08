@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="html-head">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="images/innoq-favicon.svg" type="image/svg+xml">
+    <title>Hotwire` Demo</title>
+</head>
+
+<body>
+    <header th:fragment="header">
+        <a th:href="@{/}">
+            <img src="images/innoq-logo--bluered.svg" alt="Logo">
+        </a>
+        <h1>Hotwire Demo</h1>
+        <div class="application-info">
+            <p>Showcasing the integration of hotwire into a simple Spring app</p>
+        </div>
+    </header>
+</body>
+
+</html>

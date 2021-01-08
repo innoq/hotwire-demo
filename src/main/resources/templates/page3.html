@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="de"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header::html-head">
+    <title>Hotwire Demo</title>
+</head>
+<body>
+    <div class="container">
+        <header th:replace="~{fragments/header::header}"></header>
+        <nav th:replace="~{fragments/main_navigation::main_navigation('page3')}" aria-label=""></nav>
+        <main>
+            <h1>Page 3</h1>
+            <p>This pages currently only serves to showcase navigating with <a href="https://turbo.hotwire.dev/handbook/drive">Turbo
+                    Drive</a></p>
+        </main>
+        <footer th:replace="~{fragments/footer::footer}" />
+    </div>
+    <script src="js/index.js" type="module" async defer></script>
+</body>
+</html>

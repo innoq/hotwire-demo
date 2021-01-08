@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="de"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header::html-head">
+    <title>Hotwire Demo</title>
+</head>
+<body>
+    <div class="container">
+        <header th:replace="~{fragments/header::header}"></header>
+        <nav th:replace="~{fragments/main_navigation::main_navigation('')}" aria-label=""></nav>
+        <main>
+            <h1>Hotwire Demo</h1>
+            <p>Welcome to the Hotwire Demo. We will gradually enable more features</p>
+        </main>
+        <footer th:replace="~{fragments/footer::footer}" />
+    </div>
+    <script src="js/index.js" type="module" async defer></script>
+</body>
+</html>
