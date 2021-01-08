@@ -1,0 +1,7 @@
+<turbo-frame id="comments">
+    <div th:replace="~{fragments/comments :: comments(${comments})}"></div>
+    <form action="/messages/comments" method="post">
+        <input type="text" name="comment" id="comment">
+        <button type="submit">Send comment</button>
+    </form>
+</turbo-frame>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Hotwire Widgets</title>
+</head>
+
+<body>
+    <th:block th:fragment="comments(comments)">
+        <div id="no_comments" th:if="${comments.size() == 0}">There are no comments yet</div>
+        <ol th:if="${comments.size() > 0}">
+            <li th:id="${'comment-' + stat.count}" th:each="comment, stat: ${comments}" th:text="${comment}"></li>
+        </ol>
+    </th:block>
+</body>
+
+</html>
