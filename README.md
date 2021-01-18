@@ -57,6 +57,6 @@ There are a few Configuration Files that are necessary to set up the infrastruct
 - interacting with other turbo-frames (trigger a request from a different part of the page than the one that is updated)
 - breaking free from a turbo-frame (navigating from inside a frame in a way that the whole window is replaced)
 - Using turbo-streams as a response to a normal form `POST` to update multiple elements on a page
-- Using turbo-Streams over Websockets to live-update a page
+- Using turbo-Streams over Websockets to live-update a page (and Stimulus for the Client-Side Dynamic)
 - Using turbo-Streams over Websockets to live-update a page triggered through a Custom Element
-- Using turbo-Streams over SSE to live-update a page
+- Using turbo-Streams over SSE to live-update a page (and Stimulus for the Client-Side Dynamic)
