@@ -39,12 +39,13 @@ The Spring app is mostly plain vanilla Spring Boot/WebMVC with Thymeleaf for ren
 
 There are a few Configuration Files that are necessary to set up the infrastructure:
 
-- `WebSocketConfig.java` – registers our plain vanilla Websocket Handler to the URL expected in the frontend. As we do not want complex integration, we avoid the whole STOMP / SockJS Setup and just do simple Websockets.
+- `TurboStreamsViewResolverConfiguration.java` – Registers an additional Thymeleaf View Resolver fpor the specialized Content-Type that Turbo-Streams is using. This way the Content-Negotiation of Spring WebMVC picks according to the `Accept` Header of the Client and responds with the right Content-Type automatically (i.e. we can simply return a view Name from the `@Controller` and Spring/Thymeleaf will pick up the correct view and Content-Type Response)
+- `WebSocketConfiguration.java` – registers our plain vanilla Websocket Handler to the URL expected in the frontend. As we do not want complex integration, we avoid the whole STOMP / SockJS Setup and just do simple Websockets.
 - `TaskSchedulerConfiguration.java` – since we use `@Scheduled` in some controllers, but do _not_ use Stomp, we need to provide a custom Setup here, otherwise the Stomp integration fails with a missing bean.
 
 #### other interesting Code
 
-- `MessagesController.java` – handles all the dynamic requests for data in the Turbo-Frames pages. It usually erdirects to the origin page, when not a more detailed response is necessary
+- `MessagesController.java` – handles all the dynamic requests for data in the Turbo-Frames pages. It usually redirects to the origin page, when not a more detailed response is necessary
 - `TurboStreamWebsocketHandler.java` – a minimalistic Websocket Handler that is simply used to send turbo-streams updates to the Client. In a _real_ application you would want to provide access to this component, so other Parts of the application could provide their content to this. Also note, that in a real setup one would need to handle more than a single `WebSocketSession`
 - `TurboStreamSSEController.java` – a simple implementation of a `RequestController` that uses [SSE](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events) to do the communication with the client.
 

@@ -6,14 +6,15 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 @Configuration
-public class TurboStreamsViewResolverConfig {
+public class TurboStreamsViewResolverConfiguration {
     
     @Bean
     public ThymeleafViewResolver turboStreamViewResolver(SpringTemplateEngine engine) {
         ThymeleafViewResolver resolver = new ThymeleafViewResolver();
         resolver.setContentType("text/vnd.turbo-stream.html");
-        resolver.setOrder(1);
+        resolver.setOrder(2);
         resolver.setTemplateEngine(engine);
+        resolver.setViewNames(new String[] {"comments-stream"});
         return resolver;
     }
 }
