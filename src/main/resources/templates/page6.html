@@ -16,7 +16,7 @@
             <p>This page shows how to do <a href="https://turbo.hotwire.dev/handbook/streams">Turbo Streams</a> Updates over SSE</p>
             <p>It has several sections that will get updated over a Websocket connection that transports turbo-streams messages.</p>
             <p>To enable that from the client we need to invode <code>turbo.connectStreamSource()</code> that registers a listener and handler.</p>
-            <p>The button below will do exactly that and also establish the underlying SSE Connection and the necessary event conversion.</p>
+            <p>The button below will do exactly that (using a <a href="https://stimulus.hotwire.dev/">Stimulus Controller</a>) and also establishes the underlying SSE Connection.</p>
             <div data-controller="connect-sse">
                 <button data-action="click->connect-sse#toggle" data-connect-sse-target="toggle">Attach SSE
                     Stream</button>

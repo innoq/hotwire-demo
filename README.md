@@ -21,7 +21,10 @@ Point your browser to [http://localhost:8080](http://localhost:8080)
 
 ### JS
 
-The little JS Code that is necessary is built in `src/main/js` using [snowpack](https://snowpack.dev), to add minimal overhead. The necessary call is wired to the `build` target of npm. 
+The little JS Code that is necessary is built in `src/main/js` using [snowpack](https://snowpack.dev), to add minimal overhead. The necessary call is wired to the `build` target of npm.
+
+Since we needed two Button Handlers for the Turbo Streams examples, this also includes a short [Stimulus](https://stimulus.hotwire.dev/) Usage to hook up Controllers to those Buttons. Have a peek into `ConnectSSEController.js` and `ConnectWebsocketController.js` if you're interested.
+
 The `deploy` target copies the JS Files (and their dependencies) to the `static` path of the Spring Boot Application from where they are served (Note: since we do this, the path is added to `.gitignore` to make sure we don't check in any stale JS - so all scripts wuold have to be added this way unless you write directly into the page)
 
 In order for the demo to run properly you need to run `npm run build && npm run deploy` at least once, so the necessary files are created.
