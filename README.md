@@ -39,7 +39,7 @@ The Spring app is mostly plain vanilla Spring Boot/WebMVC with Thymeleaf for ren
 
 There are a few Configuration Files that are necessary to set up the infrastructure:
 
-- `TurboStreamsViewResolverConfiguration.java` – Registers an additional Thymeleaf View Resolver fpor the specialized Content-Type that Turbo-Streams is using. This way the Content-Negotiation of Spring WebMVC picks according to the `Accept` Header of the Client and responds with the right Content-Type automatically (i.e. we can simply return a view Name from the `@Controller` and Spring/Thymeleaf will pick up the correct view and Content-Type Response)
+- `TurboStreamsViewResolverConfiguration.java` – Registers an additional Thymeleaf View Resolver for the specialized Content-Type that Turbo-Streams is using. This way the Content-Negotiation of Spring WebMVC picks according to the `Accept` Header of the Client and responds with the right Content-Type automatically (i.e. we can simply return a view Name from the `@Controller` and Spring/Thymeleaf will pick up the correct view and Content-Type Response)
 - `WebSocketConfiguration.java` – registers our plain vanilla Websocket Handler to the URL expected in the frontend. As we do not want complex integration, we avoid the whole STOMP / SockJS Setup and just do simple Websockets.
 - `TaskSchedulerConfiguration.java` – since we use `@Scheduled` in some controllers, but do _not_ use Stomp, we need to provide a custom Setup here, otherwise the Stomp integration fails with a missing bean.
 
