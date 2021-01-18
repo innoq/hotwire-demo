@@ -11,7 +11,7 @@ import ch.jpr.hotwire.demo.controllers.TurboStreamWebsocketHandler;
 
 @Configuration
 @EnableWebSocket
-public class WebSocketConfig implements WebSocketConfigurer {
+public class WebSocketConfiguration implements WebSocketConfigurer {
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
@@ -22,6 +22,4 @@ public class WebSocketConfig implements WebSocketConfigurer {
     public WebSocketHandler turboStreamHandler() {
         return new TurboStreamWebsocketHandler();
     }
-
-    
 }

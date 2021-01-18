@@ -50,5 +50,4 @@ public class TurboStreamWebsocketHandler extends TextWebSocketHandler {
         
         this.sendUpdate(content);
     }
-
 }

@@ -4,9 +4,7 @@
     --border-color: #000;
     --border-light-color: #ccc;
     --hover-highlight: lightblue;
-    --selected-hightlight: lightcoral;
-    --light-text: #575757;
-    --chip-background: #e4e4e4;
+    --selected-highlight: lightcoral;
 }
 
 /* overall definitions */
@@ -81,7 +79,7 @@ nav.main-navigation>ul>li:hover {
 
 nav.main-navigation>ul>li.active {
     font-weight: 700;
-    background-color: var(--selected-hightlight);
+    background-color: var(--selected-highlight);
 }
 
 nav.main-navigation>ul>li>a {
