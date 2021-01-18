@@ -17,36 +17,18 @@
             <p>It has several sections that will get updated over a Websocket connection that transports turbo-streams messages.</p>
             <p>To enable that from the client we need to invode <code>turbo.connectStreamSource()</code> that registers a listener and handler.</p>
             <p>The button below will do exactly that and also establish a new WS Connection to the Backend to obtain the updates. We will then get an update every two seconds.</p>
+            <div data-controller="connect-websocket" data-connect-websocket-connected-value="false">
+                <button data-action="click->connect-websocket#toggleStream" data-connect-websocket-target="toggle">Attach WS Stream</button>
+            </div>
             <h3>Stream targets</h3>
             <p id="replace">The contents of this paragraph will be replaced</p>
             <ul id="append">
                 <li>New contents will be appendeed to this list</li>
             </ul>
-            
-            <button id="attach_stream">Attach WS Stream</button>
         </main>
         <footer th:replace="~{fragments/footer::footer}" />
     </div>
-    <script src="js/index.js" type="module"></script>
-    <script type="module">
-        import * as turbo from './web_modules/@hotwired/turbo.js';
-        const button = document.querySelector('#attach_stream');
-        let connected = false;
-        let eventSource;
-        button.addEventListener('click', () => {
-             if (!connected) {
-                eventSource = new WebSocket("ws://localhost:8080/stream-updates");
-                turbo.connectStreamSource(eventSource);
-                connected = true;
-                button.innerText = 'Detach WS Stream';
-            } else {
-                turbo.disconnectStreamSource(eventSource);
-                eventSource.close();
-                eventSource = undefined;
-                connected = false;
-                button.innerText = 'Attach WS Stream';
-            }
-        })
-    </script>
+    <script src="js/index.js" type="module" async defer></script>
+    <script src="js/StimulusApplication.js" type="module" async defer></script>
 </body>
 </html>

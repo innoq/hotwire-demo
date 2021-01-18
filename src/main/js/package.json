@@ -2,16 +2,17 @@
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
-    "deploy": "cp build/src/*.js ../resources/static/js && cp -r build/web_modules ../resources/static",
+    "deploy": "cp build/src/*.js ../resources/static/js && cp -r build/_snowpack ../resources/static/",
     "test": "echo \"This template does not include a test runner by default.\" && exit 1",
     "format": "prettier --write \"src/**/*.{ts,js}\"",
     "lint": "prettier --check \"src/**/*.{ts,js}\""
   },
   "dependencies": {
-    "@hotwired/turbo": "^7.0.0-beta.2"
+    "@hotwired/turbo": "^7.0.0-beta.3",
+    "stimulus": "^2.0.0"
   },
   "devDependencies": {
     "prettier": "^2.2.1",
-    "snowpack": "^3.0.0-rc.2"
+    "snowpack": "^3.0.11"
   }
 }

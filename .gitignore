@@ -5,6 +5,7 @@ target/
 
 src/main/resources/static/js/*.js
 src/main/resources/static/web_modules
+src/main/resources/static/_snowpack
 
 ### STS ###
 .apt_generated

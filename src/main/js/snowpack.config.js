@@ -1,3 +1,5 @@
 module.exports = {
-    install: ['@hotwired/turbo']
+    packageOptions: {
+        knownEntrypoints: ['@hotwired/turbo', 'stimulus']
+    }
 }
