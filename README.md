@@ -59,4 +59,3 @@ There are a few Configuration Files that are necessary to set up the infrastruct
 - Using turbo-Streams over Websockets to live-update a page
 - Using turbo-Streams over Websockets to live-update a page triggered through a Custom Element
 - Using turbo-Streams over SSE to live-update a page
-
