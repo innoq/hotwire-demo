@@ -10,7 +10,13 @@
         <nav th:replace="~{fragments/main_navigation::main_navigation('')}" aria-label=""></nav>
         <main>
             <h1>Hotwire Demo</h1>
-            <p>Welcome to the Hotwire Demo. We will gradually enable more features</p>
+            <p>Welcome to the Hotwire Demo. You can find individual features on the subpages.</p>
+            <ul>
+                <li><a href="/page1">Simple Turbo-Frames: showcasing interaction with only a part of your page.</a></li>
+                <li><a href="/page2">Turbo-Frames: Lazy loading and remote interaction. Showcasing how to lazy load parts of your page and interact with frames that are elsewhere on the page.</a></li>
+                <li><a href="/page3">Turbo Frames: breaking out. Showcasing how to leave the environment of a Turbo Frame</a></li>
+                <li><a href="/page4">Turbo Streams: Showcasing doing multiple updates at once.</a></li>
+            </ul>
         </main>
         <footer th:replace="~{fragments/footer::footer}" />
     </div>

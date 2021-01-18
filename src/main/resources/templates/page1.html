@@ -10,17 +10,16 @@
         <nav th:replace="~{fragments/main_navigation::main_navigation('page1')}" aria-label=""></nav>
         <main>
             <h1>Page 1</h1>
-            <p>This pages currently only serves to showcase navigating with <a href="https://turbo.hotwire.dev/handbook/drive">Turbo Drive</a></p>
+            <p>This pages currently also serves to showcase navigating with <a href="https://turbo.hotwire.dev/handbook/drive">Turbo Drive</a></p>
             <h2>Showcasing simple Turbo Frames</h2>
             <p>Let's move on to showcase <a href="https://turbo.hotwire.dev/handbook/frames">Turbo Frames</a></p>
             
             <h3>✨ WITH Turbo Frames ✨</h3>
             <p>Let's assume that this here is a paragraph of text that we allow comments for.</p>
-            <p>When a new comment is entered (yes, you can write a comment without any authentication 😱) we want to only reload the part of the page that show those comments.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus expedita rem nesciunt, aspernatur porro illum a, minima ducimus, repellat ad inventore perferendis sed iusto placeat quia corrupti doloribus assumenda repudiandae!</p>
+            <p>When a new comment is entered only the part of the page showing the comments is reloaded</p>
             <h3>Comments</h3>
             <turbo-frame id="comments">
-                <div id="no_comments">There are no comments yet</div>
+                <div th:replace="~{fragments/comments :: comments(${comments})}"></div>
                 <form action="/messages/comments" method="post">
                     <input type="text" name="comment" id="comment">
                     <button type="submit">Send comment</button>
@@ -30,12 +29,9 @@
             <h3>💩 WITHOUT Turbo Frames 💩</h3>
             <p>This is another piece of content you can enter comments for.</p>
             <p>But when you submit here, the whole page is reloaded</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus expedita rem nesciunt, aspernatur porro illum a,
-                minima ducimus, repellat ad inventore perferendis sed iusto placeat quia corrupti doloribus assumenda repudiandae!
-            </p>
             <h3>Comments</h3>
                 <div th:replace="~{fragments/comments :: comments(${comments})}"></div>
-                <form action="/messages/comments/poo" method="post">
+                <form action="/messages/comments" method="post">
                     <input type="text" name="comment" id="comment">
                     <button type="submit">Send comment</button>
                 </form>

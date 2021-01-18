@@ -20,20 +20,25 @@ public class PageController {
 
     @GetMapping(path = "/page1")
     public String page1(Model model) {
-        // Don't do that for real
         List<String> comments = messagesController.getComments();
-
         model.addAttribute("comments", comments);
         return "page1";
     }
 
     @GetMapping(path = "/page2")
     public String page2(Model model) {
+        List<String> comments = messagesController.getComments();
+        model.addAttribute("comments", comments);
         return "page2";
     }
 
     @GetMapping(path = "/page3")
     public String page3(Model model) {
         return "page3";
+    }
+    
+    @GetMapping(path = "/page4")
+    public String page4(Model model) {
+        return "page4";
     }
 }
