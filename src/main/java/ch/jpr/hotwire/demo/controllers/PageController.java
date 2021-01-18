@@ -51,4 +51,9 @@ public class PageController {
     public String page6() {
         return "page6";
     }
+
+    @GetMapping(path = "/page7")
+    public String page7() {
+        return "page7";
+    }
 }
