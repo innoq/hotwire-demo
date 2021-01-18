@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header::html-head">
+    <title>Hotwire Demo</title>
+</head>
+<body>
+    <div class="container">
+        <header th:replace="~{fragments/header::header}"></header>
+        <nav th:replace="~{fragments/main_navigation::main_navigation('page6')}" aria-label=""></nav>
+        <main>
+            <h1>Page 6</h1>
+            <p>This pages currently also serves to showcase navigating with <a href="https://turbo.hotwire.dev/handbook/drive">Turbo
+                    Drive</a></p>
+            <h2>Turbo Streams over SSE</h2>
+            <p>This page shows how to do <a href="https://turbo.hotwire.dev/handbook/streams">Turbo Streams</a> Updates over SSE</p>
+            <p>It has several sections that will get updated over a Websocket connection that transports turbo-streams messages.</p>
+            <p>To enable that from the client we need to invode <code>turbo.connectStreamSource()</code> that registers a listener and handler.</p>
+            <p>The button below will do exactly that and also establish the underlying SSE Connection and the necessary event conversion.</p>
+            <h3>Stream targets</h3>
+            <p id="replace">The contents of this paragraph will be replaced</p>
+            <ul id="append">
+                <li>New contents will be appendeed to this list</li>
+            </ul>
+            
+            <button id="attach_stream">Attach SSE Stream</button>
+        </main>
+        <footer th:replace="~{fragments/footer::footer}" />
+    </div>
+    <script src="js/index.js" type="module"></script>
+    <script type="module">
+        import * as turbo from './web_modules/@hotwired/turbo.js';
+        const button = document.querySelector('#attach_stream');
+        let connected = false;
+        let eventSource;
+        button.addEventListener('click', () => {
+            if (!connected) {
+                eventSource = new EventSource("http://localhost:8080/turbo-sse");
+                turbo.connectStreamSource(eventSource);
+                connected = true;
+                button.innerText = 'Detach SSE Stream';
+            } else {
+                turbo.disconnectStreamSource(eventSource);
+                eventSource.close();
+                eventSource = undefined;
+                connected = false;
+                button.innerText = 'Attach SSE Stream';
+            }
+        })
+    </script>
+</body>
+</html>

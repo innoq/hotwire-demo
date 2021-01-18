@@ -33,12 +33,22 @@ public class PageController {
     }
 
     @GetMapping(path = "/page3")
-    public String page3(Model model) {
+    public String page3() {
         return "page3";
     }
     
     @GetMapping(path = "/page4")
-    public String page4(Model model) {
+    public String page4() {
         return "page4";
+    }
+    
+    @GetMapping(path = "/page5")
+    public String page5() {
+        return "page5";
+    }
+    
+    @GetMapping(path = "/page6")
+    public String page6() {
+        return "page6";
     }
 }

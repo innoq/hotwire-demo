@@ -8,10 +8,12 @@
 <body>
     <nav class="main-navigation" aria-label="Hauptnavigation" th:fragment="main_navigation(currentlink)">
         <ul>
-            <li th:class="${currentlink == 'page1'}? 'active' : ''"><a href="/page1" th:href="@{/page1}">Simple Turbo Frames</a></li>
-            <li th:class="${currentlink == 'page2'}? 'active' : ''"><a href="/page2" th:href="@{/page2}">Turbo Frames: Lazy loading and remote interactions</a></li>
-            <li th:class="${currentlink == 'page3'}? 'active' : ''"><a href="/page3" th:href="@{/page3}">Turbo Frames: breaking out</a></li>
+            <li th:class="${currentlink == 'page1'}? 'active' : ''"><a href="/page1" th:href="@{/page1}">Turbo Frames I</a></li>
+            <li th:class="${currentlink == 'page2'}? 'active' : ''"><a href="/page2" th:href="@{/page2}">Turbo Frames II</a></li>
+            <li th:class="${currentlink == 'page3'}? 'active' : ''"><a href="/page3" th:href="@{/page3}">Turbo Frames III</a></li>
             <li th:class="${currentlink == 'page4'}? 'active' : ''"><a href="/page4" th:href="@{/page4} ">Turbo Streams</a></li>
+            <li th:class="${currentlink == 'page5'}? 'active' : ''"><a href="/page5" th:href="@{/page5} ">Turbo Streams/WS</a></li>
+            <li th:class="${currentlink == 'page6'}? 'active' : ''"><a href="/page6" th:href="@{/page6} ">Turbo Streams/SSE</a></li>
         </ul>
     </nav>
 </body>
